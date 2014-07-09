@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Marionette.js Blog]]></title>
+  
+  <link href="/blog/atom.xml" rel="self"/>
+  <link href="http://marionettejs.com/"/>
+  <updated>2014-07-09T03:26:12.445Z</updated>
+  <id>http://marionettejs.com/</id>
+  
+  <author>
+    <name><![CDATA[Team Marionette]]></name>
+    <email><![CDATA[himarionette@gmai.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Marionette V2.0.1 Released]]></title>
+    <link href="http://marionettejs.com/2014/07/05/v201-release/"/>
+    <id>http://marionettejs.com/2014/07/05/v201-release/</id>
+    <published>2014-07-05T17:24:56.000Z</published>
+    <updated>2014-07-05T17:26:40.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="v2.png" alt="Marionette v2.0.1"></p>
+<p>Marionette v2.0.1 has been released into the wild! There are lot of great features and changes, but don’t be scared to upgrade because we’ve created an awesome Upgrade Tool to help you.</p>
+<p><strong>Upgrade Tool:</strong> <a href="https://github.com/marionettejs/Marionette.Upgrade" target="_blank" rel="external">https://github.com/marionettejs/Marionette.Upgrade</a></p>
+<p><strong>TIP!</strong> Press <strong>y</strong> first to start the tool. Here’s an animated of gif showing you what it looks like. The terminal is really light but notice that at the top, you’ll see the actual file and line number of the suggested change.</p>
+<p><strong>Animated gif of the upgrade process:</strong> <a href="https://minbox.com/app/collections/URhfhIg/items/owYA_ga" target="_blank" rel="external">https://minbox.com/app/collections/URhfhIg/items/owYA_ga</a></p>
+<p>Read the changelog details, and if you have further questions, find us in the Marionette chat room.</p>
+<p><strong>Changelog detail:</strong> <a href="https://github.com/Puppets/marionette-changelog-detail" target="_blank" rel="external">https://github.com/Puppets/marionette-changelog-detail</a></p>
+<p><strong>Chat room:</strong> <a href="https://gitter.im/marionettejs/backbone.marionette" target="_blank" rel="external">https://gitter.im/marionettejs/backbone.marionette</a></p>
+]]></content>
+    
+    
+      <category term="releases" scheme="http://marionettejs.com/tags/releases/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Backbone.Radio]]></title>
+    <link href="http://marionettejs.com/2014/07/05/backbone-radio/"/>
+    <id>http://marionettejs.com/2014/07/05/backbone-radio/</id>
+    <published>2014-07-05T15:56:50.000Z</published>
+    <updated>2014-07-05T19:50:09.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="backbone-radio.svg" alt="Backbone.Radio"></p>
+<p>Introducing <a href="https://github.com/jmeas/backbone.radio" target="_blank" rel="external">BB.Radio</a>! It will replace <a href="https://github.com/marionettejs/backbone.wreqr" target="_blank" rel="external">Backbone.Wreqr</a> down the road in Marionette, so why not start playing with it?</p>
+<h3 id="Benefits:">Benefits:</h3>
+<ol>
+<li>Cleaner API</li>
+<li>More features and is still smaller than Wreqr</li>
+<li>Embraces the fact that commands, requests, and events are supposed to be siblings, so the APIs of all 3 systems are basically identical in form </li>
+</ol>
+<h3 id="Differences:">Differences:</h3>
+<p>The API is directly on globalChannel, so basically, <code>myChannel.vent</code>, <code>myChannel.reqres</code>, and <code>myChannel.commands</code> becomes <code>myChannel</code>.</p>
+<h3 id="Events">Events</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">BEFORE</th>
+<th style="text-align:left">AFTER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">myChannel.vent.trigger</td>
+<td style="text-align:left">myChannel.trigger </td>
+</tr>
+<tr>
+<td style="text-align:left">myChannel.vent.on</td>
+<td style="text-align:left">myChannel.trigger </td>
+</tr>
+</tbody>
+</table>
+<h3 id="Requests">Requests</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">BEFORE</th>
+<th style="text-align:left">AFTER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">myChannel.reqres.request</td>
+<td style="text-align:left">myChannel.request</td>
+</tr>
+<tr>
+<td style="text-align:left">myChannel.reqres.setHandler</td>
+<td style="text-align:left">myChannel.reply  </td>
+</tr>
+</tbody>
+</table>
+<h3 id="Commands">Commands</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">BEFORE</th>
+<th style="text-align:left">AFTER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">myChannel.commands.execute</td>
+<td style="text-align:left">myChannel.command</td>
+</tr>
+<tr>
+<td style="text-align:left">myChannel.commands.setHandler</td>
+<td style="text-align:left">myChannel.comply </td>
+</tr>
+</tbody>
+</table>
+<h3 id="Listening_in_on_the_Message_Bus">Listening in on the Message Bus</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">BEFORE</th>
+<th style="text-align:left">AFTER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">this.listenTo(globalCh.vent,  ‘some:event’, myCallback)</td>
+<td style="text-align:left">this.listenTo(globalChannel, ‘some:event’, myCallback)</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    
+      <category term="news" scheme="http://marionettejs.com/tags/news/"/>
+    
+  </entry>
+  
+</feed>

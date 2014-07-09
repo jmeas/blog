@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Backbone.Radio | Marionette.js Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="../../../../css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="Marionette.js Blog">
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <header class="post-header">
+      <a class="blog-logo" href="../../../../index.html">
+        
+        <img src="http://marionettejs.com/images/marionette_logo-4eeb07e5.png" alt="Blog Logo"/></a>
+        
+      </a>
+    </header>
+    <span class="post-meta">
+      <time datetime="2014-07-05T15:56:50.000Z" itemprop="datePublished">Jul 5 2014</time>
+       in<a href='../../../../tags/news/index.html' style='margin:0 5px;'>news</a>
+    </span>
+    <h1 class="post-title">Backbone.Radio</h1>
+    <section class="post-content">
+      <p><img src="backbone-radio.svg" alt="Backbone.Radio"></p>
+<p>Introducing <a href="https://github.com/jmeas/backbone.radio" target="_blank" rel="external">BB.Radio</a>! It will replace <a href="https://github.com/marionettejs/backbone.wreqr" target="_blank" rel="external">Backbone.Wreqr</a> down the road in Marionette, so why not start playing with it?</p>
+<h3 id="Benefits:">Benefits:</h3>
+<ol>
+<li>Cleaner API</li>
+<li>More features and is still smaller than Wreqr</li>
+<li>Embraces the fact that commands, requests, and events are supposed to be siblings, so the APIs of all 3 systems are basically identical in form </li>
+</ol>
+<h3 id="Differences:">Differences:</h3>
+<p>The API is directly on globalChannel, so basically, <code>myChannel.vent</code>, <code>myChannel.reqres</code>, and <code>myChannel.commands</code> becomes <code>myChannel</code>.</p>
+<h3 id="Events">Events</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">BEFORE</th>
+<th style="text-align:left">AFTER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">myChannel.vent.trigger</td>
+<td style="text-align:left">myChannel.trigger </td>
+</tr>
+<tr>
+<td style="text-align:left">myChannel.vent.on</td>
+<td style="text-align:left">myChannel.trigger </td>
+</tr>
+</tbody>
+</table>
+<h3 id="Requests">Requests</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">BEFORE</th>
+<th style="text-align:left">AFTER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">myChannel.reqres.request</td>
+<td style="text-align:left">myChannel.request</td>
+</tr>
+<tr>
+<td style="text-align:left">myChannel.reqres.setHandler</td>
+<td style="text-align:left">myChannel.reply  </td>
+</tr>
+</tbody>
+</table>
+<h3 id="Commands">Commands</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">BEFORE</th>
+<th style="text-align:left">AFTER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">myChannel.commands.execute</td>
+<td style="text-align:left">myChannel.command</td>
+</tr>
+<tr>
+<td style="text-align:left">myChannel.commands.setHandler</td>
+<td style="text-align:left">myChannel.comply </td>
+</tr>
+</tbody>
+</table>
+<h3 id="Listening_in_on_the_Message_Bus">Listening in on the Message Bus</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">BEFORE</th>
+<th style="text-align:left">AFTER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">this.listenTo(globalCh.vent,  ‘some:event’, myCallback)</td>
+<td style="text-align:left">this.listenTo(globalChannel, ‘some:event’, myCallback)</td>
+</tr>
+</tbody>
+</table>
+
+    </section>
+      <div id="disqus_thread"></div>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      <footer class="post-footer">
+      <section class="share">
+        <h4>Share this post</h4>
+        <a class="icon-twitter" href="http://twitter.com/share?url=http://marionettejs.com/blog/2014/07/05/backbone-radio/"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+        </a>
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://marionettejs.com/blog/2014/07/05/backbone-radio/"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+        </a>
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://marionettejs.com/blog/2014/07/05/backbone-radio/"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+        </a>
+      </section>
+    </footer>
+  </article>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <a class="subscribe icon-feed" href="../../../../atom.xml"><span class="tooltip">Subscribe!</span></a>
+  
+  <div class="inner">
+     <section class="copyright">&copy; 2014 &bull; All rights reserved.</section>
+  </div>
+</footer>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="../../../../js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="../../../../js/index.js"></script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'marionette';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+</body>
+</html>
